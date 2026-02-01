@@ -1,0 +1,11 @@
+#
+DBASE = ".\\db\\kadr.db"
+PATH1 = ".\\xls\\"
+TOKEN = '8570973938:AAHa36c5MFrtEicNbzaGCxzDfuCh9CSor20'
+WORKING_START = "08:30:00"
+WORKING_END = "17:30:00"
+FORA = 5
+PRIX = 240
+RADIUS = 30
+superadmin = 139204666
+#
