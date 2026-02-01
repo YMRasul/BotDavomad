@@ -290,3 +290,16 @@ async def get_contact(message: types.Message):
         reply_markup=types.ReplyKeyboardRemove() # Убираем кнопки
     )
 №-----------------------------------------------------------------------------------------
+
+
+
+
+
+# 1. Добавляем адрес удаленного репозитория (вставьте свою ссылку)
+git remote add origin https://github.com
+
+# 2. Убеждаемся, что основная ветка называется main (рекомендуемый стандарт GitHub)
+git branch -M main
+
+# 3. Отправляем код на сервер
+git push -u origin main
