@@ -1,3 +1,4 @@
+
 ImkobUzNewbot.
 8570973938:AAHa36c5MFrtEicNbzaGCxzDfuCh9CSor20
 #----------------------
@@ -303,3 +304,14 @@ git branch -M main
 
 # 3. Отправляем код на сервер
 git push -u origin main
+#==========================================================
+
+CREATE TABLE users ( user_id INTEGER PRIMARY KEY, full_name TEXT,  phone TEXT,
+        name TEXT,dolj TEXT,office_id INTEGER,prz INTEGER, dat TEXT, 
+        FOREIGN KEY(office_id) REFERENCES offices(id))
+
+CREATE TABLE  davomad (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER,office_id INTEGER,'
+        data TEXT,  time TEXT, prz INTEGER,raz TEXT)
+
+В таблице davomad надо организовать по полю user_id к полю user_id из таблицы
+users причем удаление из таблицы users должен быт каскадно

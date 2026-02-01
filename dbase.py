@@ -39,8 +39,8 @@ async def dbase_start():
         await db.conn.execute(s)
 
         s = 'CREATE TABLE IF NOT EXISTS davomad (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER,office_id INTEGER,'
-        s = s + ' data TEXT,  time TEXT, prz INTEGER,raz TEXT)'
-        #print(s)
+        s = s + ' data TEXT,  time TEXT, prz INTEGER,raz TEXT,FOREIGN  KEY(user_id) REFERENCES  users(user_id) ON DELETE CASCADE)'
+
         await db.conn.execute(s)
 
         await db.conn.commit()

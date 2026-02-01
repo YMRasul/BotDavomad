@@ -191,6 +191,7 @@ async def saveUser(message,contact):
         # Удалить из users пользователя  idUser  если такой там есть
         sql = '''DELETE FROM users WHERE user_id = ?'''
         async with Database(DBASE) as db:
+            await db.conn.execute("PRAGMA foreign_keys = ON;")
             await db.IUD(sql,(message.from_user.id,))
             await db.conn.commit()
 
