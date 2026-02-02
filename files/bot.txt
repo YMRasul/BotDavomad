@@ -315,3 +315,56 @@ CREATE TABLE  davomad (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER,off
 
 В таблице davomad надо организовать по полю user_id к полю user_id из таблицы
 users причем удаление из таблицы users должен быт каскадно
+
+python.
+как такое организовать              st = "SELECT * FROM davomad"
+следующего запроса. 
+select d.office_id,(select o.name from offices o where o.id=d.office_id) as nm ,d.user_id,d.data from davomad d
+
+====================
+st = """
+SELECT 
+    d.office_id, 
+    (SELECT o.name FROM offices o WHERE o.id = d.office_id) AS nm, 
+    d.user_id, 
+    d.data 
+FROM davomad d
+"""
+=======================
+через join
+st = """
+SELECT 
+    d.office_id, 
+    o.name AS nm, 
+    d.user_id, 
+    d.data 
+FROM davomad d
+LEFT JOIN offices o ON o.id = d.office_id
+"""
+===================
+
+Почему так лучше:
+Скорость: База данных один раз соединяет таблицы, 
+а не запускает отдельный поиск имени для каждой строки davomad.
+Гибкость: 
+Если вам понадобятся другие данные из таблицы офисов (например, адрес), 
+вы просто добавите o.address в список SELECT.
+Безопасность: LEFT JOIN гарантирует, что если офис вдруг не найдется, 
+строка из davomad всё равно выведется (просто имя будет None/NULL).
+==============
+по пользователю
+st = """
+SELECT 
+    d.office_id, 
+    o.name AS nm, 
+    d.user_id, 
+    d.data 
+FROM davomad d
+LEFT JOIN offices o ON o.id = d.office_id
+WHERE d.user_id = ?
+"""
+
+# Пример выполнения (для sqlite3)
+# cursor.execute(st, (user_id_value,))
+
+

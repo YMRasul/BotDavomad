@@ -1,6 +1,7 @@
 from HandStart import GetrouterStart
 from HandAdmin import GetRouterAdmin
 from HandHelp import routerHelp
+from HandReport import routerReport
 import asyncio
 import logging
 from dbase import dbase_start
@@ -29,6 +30,7 @@ async def main():                       # Запуск процесса полл
     routerAdmin = GetRouterAdmin(bot)
     dp.include_router(routerAdmin)  # 2. Admin hendler
 
+    dp.include_router(routerReport)
     dp.include_router(routerHelp)
 
     dp.startup.register(on_startup)    # регистрация функцию  on_startup()

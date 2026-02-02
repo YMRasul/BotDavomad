@@ -87,7 +87,7 @@ def GetrouterStart(bot):
             if  distance_meeter < rad:
                 sz = f"Сиз офисдасиз. Вакт {current_time}"
                 await message.answer(sz)
-                await DefUser(message,id,podr[0],current_date,current_time,int(minutes) )
+                await DefUser(bot,message,id,podr[0],current_date,current_time,int(minutes),podr[1],user[3],user[4] )
                 print(sz)
                 #print(f{int(minutes)} минут кечикдингиз")
 
